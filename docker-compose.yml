@@ -2,18 +2,18 @@
 version: '3'
 
 services:
-  # service_one:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - ${PORT}:${PORT}
-  #   volumes:
-  #     - '.:${APP_LOCATION}'
-  #   env_file: .env
-  #   environment:
-  #     - env=development
-  #   restart: always
+  service_one:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - '.:${APP_LOCATION}'
+    env_file: .env
+    environment:
+      - env=development
+    restart: always
   service_one_test:
     build:
       context: .
@@ -25,4 +25,3 @@ services:
     env_file: .env
     environment:
       - env=testing
-    restart: always
