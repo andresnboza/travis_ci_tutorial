@@ -14,15 +14,14 @@ services:
     environment:
       - env=development
     restart: always
-  # service_one_test:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.dev
-  #   ports:
-  #     - ${TEST_PORT}:${TEST_PORT}
-  #   volumes:
-  #     - '.:${APP_LOCATION}'
-  #   env_file: .env
-  #   environment:
-  #     - env=testing
-  #   restart: always
+  service_one_test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - ${TEST_PORT}:${TEST_PORT}
+    volumes:
+      - '.:${APP_LOCATION}'
+    env_file: .env
+    environment:
+      - env=testing
