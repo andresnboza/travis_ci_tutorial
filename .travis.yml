@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.6"
+sudo: required
+services:
+  - docker
+install:
+  - pip install -r requirements.txt
+before_install:
+  - docker build -t andresnboza/travis_ci_training -f Dockefile.dev .
+script:
+  - docker run -e "PORT=$PORT" -e "ENV=$ENV" -e "APP_LOCATION=$APP_LOCATION" make test
+after_success:
+  - make dockerhub_push
